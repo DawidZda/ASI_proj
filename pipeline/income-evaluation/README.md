@@ -40,8 +40,6 @@ weighted avg     0.8157    0.8230    0.8181      6513
 
 
 ### Uruchomienie 
-Instalacja kedro i plików z requirements.txt.
-Umieszczenie pliku income_evaluation.csv w katalogu data/01_raw/
 kedro run (testowane tylko na Windows)
 
 ### Do dodania
