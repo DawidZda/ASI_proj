@@ -1,0 +1,15 @@
+income_evaluation_raw:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/income_evaluation.csv
+
+income_evaluation_validated:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/income_evaluation_validated.csv
+
+income_evaluation_transformed:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/income_evaluation_transformed.csv
+
+income_evaluation_new_features:
+  type: pandas.CSVDataset
+  filepath: data/04_feature/income_evaluation_new_features.csv
