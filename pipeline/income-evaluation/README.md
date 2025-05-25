@@ -31,7 +31,7 @@ Dodaje nową ceche kontynent na który jest położony dany kraj (chyba, że to 
 Stworzenie plików treningowych i testowych.
 
 ### balance_train_set_node
-Balansowanie zbioru treningowego za pomocą resample.
+
 
 ### train_model_node
 Tranowanie modelu za pomocą autogluon na standordowych ustawieniach i zapis na chmurę google (jeżeli opcja UPLOAD_MODEL jest włączona)

@@ -7,6 +7,7 @@ from income_evaluation.utils import get_drive_service, validate_data, get_train_
 from autogluon.tabular import TabularPredictor
 from sklearn.metrics import classification_report
 from sklearn.utils import resample
+from dotenv import load_dotenv
 
 
 target_column = 'high_income'
@@ -129,6 +130,10 @@ def train_model(X_train, X_test, y_train, y_test):
     shutil.make_archive(base_name=model_path, format='zip', root_dir=model_path)
     print(f"Model spakowany do: {model_path}.zip")
     
+
+    load_dotenv()
+
+    print("UPLOAD_MODEL:", os.getenv("UPLOAD_MODEL"))
     if os.getenv("UPLOAD_MODEL", "false").lower() == "true":
         model_id = generate_short_uuid()
 
