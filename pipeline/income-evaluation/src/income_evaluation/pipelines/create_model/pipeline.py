@@ -1,5 +1,5 @@
 from kedro.pipeline import node, Pipeline, pipeline  # noqa
-from .nodes import validate_dataset, transform_dataset, add_new_features, train_model
+from .nodes import validate_dataset, transform_dataset, add_new_features, train_model, train_and_test_sets
 
 
 def create_pipeline(**kwargs) -> Pipeline:
@@ -23,8 +23,14 @@ def create_pipeline(**kwargs) -> Pipeline:
     name="add_new_features_node"
     ),
  node(
-    func=train_model,
+    func=train_and_test_sets,
     inputs=["income_evaluation_new_features"],
+    outputs=['X_train', 'X_test', 'y_train', 'y_test'],
+    name="train_and_test_sets_node"
+    ),
+ node(
+    func=train_model,
+    inputs=['X_train', 'X_test', 'y_train', 'y_test'],
     outputs=None,
     name="train_model_node"
     )

@@ -13,3 +13,19 @@ income_evaluation_transformed:
 income_evaluation_new_features:
   type: pandas.CSVDataset
   filepath: data/04_feature/income_evaluation_new_features.csv
+
+X_train:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/X_train.csv
+
+X_test:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/X_test.csv
+
+y_train:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/y_train.csv
+
+y_test:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/y_test.csv

@@ -7,6 +7,8 @@ from income_evaluation.utils import get_drive_service, validate_data, get_train_
 from autogluon.tabular import TabularPredictor
 from sklearn.metrics import classification_report
 
+
+target_column = 'high_income'
 def validate_dataset(income_evaluation_raw: pd.DataFrame) -> pd.DataFrame:
     print('Walidacja danych')
 
@@ -70,13 +72,15 @@ def add_new_features(df):
     return df
 
 
-
-def train_model(income_evaluation_new_features):
-    print('Trenowanie modelu')
-
-    target_column = 'high_income'
+def train_and_test_sets(income_evaluation_new_features):
     # Podział danych
     X_train, X_test, y_train, y_test = get_train_and_test_sets(income_evaluation_new_features, target_column)
+
+    return X_train, X_test, y_train, y_test
+
+
+def train_model(X_train, X_test, y_train, y_test):
+    print('Trenowanie modelu')
 
     model_path = "tmp/tabular_model"
     zip_file = 'tmp/tabular_model.zip'
@@ -157,7 +161,7 @@ def group_native_country(country):
         'England', 'Germany', 'Italy', 'Poland', 'Portugal', 'France', 'Greece', 'Ireland',
         'Scotland', 'Yugoslavia', 'Hungary', 'Holand-Netherlands'
     ]
-    usa = ['United-States']
+    america = ['United-States']
 
     if country in latin_america:
         return 'Latin America'
@@ -165,7 +169,7 @@ def group_native_country(country):
         return 'Asia'
     elif country in europe:
         return 'Europe'
-    elif country in usa:
-        return 'United States'
+    elif country in america:
+        return 'America'
     else:
         return 'Other'

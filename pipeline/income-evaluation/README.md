@@ -26,6 +26,11 @@ Zamienia znaki zapytania '?' na Unknown.
 
 ### add_new_features_node
 Dodaje nową ceche kontynent na który jest położony dany kraj (chyba, że to USA to wtedy zostaje USA -> zrobiłem tak poniważ osób z USA jest najwięcej -> do dyskusji).
+
+
+### train_and_test_sets_node
+Stworzenie plików treningowych i testowych.
+
 ### train_model_node
 Tranowanie modelu za pomocą autogluon na standordowych ustawieniach i zapis na chmurę google (jeżeli opcja UPLOAD_MODEL jest włączona)
 Raport klasyfikacji:
