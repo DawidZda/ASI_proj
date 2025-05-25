@@ -31,7 +31,7 @@ Dodaje nową ceche kontynent na który jest położony dany kraj (chyba, że to 
 Stworzenie plików treningowych i testowych.
 
 ### balance_train_set_node
-
+Zbalanoswanie zbioru treningowego za pomacą resample.
 
 ### train_model_node
 Tranowanie modelu za pomocą autogluon na standordowych ustawieniach i zapis na chmurę google (jeżeli opcja UPLOAD_MODEL jest włączona)
@@ -50,8 +50,9 @@ weighted avg     0.8157    0.8230    0.8181      6513
 kedro run (testowane tylko na Windows)
 
 ### Balansowanie
-
-Za pomocą resample
+Kolumna celu:
+false 76.2%
+true 23.8%
 
 Raport klasyfikacji:
                precision    recall  f1-score   support
