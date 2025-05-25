@@ -6,6 +6,7 @@ from tools import upload_zip_file
 from income_evaluation.utils import get_drive_service, validate_data, get_train_and_test_sets, generate_filename, generate_short_uuid
 from autogluon.tabular import TabularPredictor
 from sklearn.metrics import classification_report
+from sklearn.utils import resample
 
 
 target_column = 'high_income'
@@ -77,6 +78,36 @@ def train_and_test_sets(income_evaluation_new_features):
     X_train, X_test, y_train, y_test = get_train_and_test_sets(income_evaluation_new_features, target_column)
 
     return X_train, X_test, y_train, y_test
+
+
+def balance_train_set(X_train, y_train):
+
+    train_data = pd.concat([X_train, y_train], axis=1)
+
+    df_majority = train_data[train_data[target_column] == False]
+    df_minority = train_data[train_data[target_column] == True]
+
+
+    print(f'Klasa false: {len(df_majority)}')
+    print(f'Klasa true: {len(df_minority)}')
+
+        # Zbalansuj przez oversampling
+    df_minority_upsampled = resample(df_minority,
+                                 replace=True,
+                                 n_samples=len(df_majority),
+                                 random_state=42)
+
+    train_data_balanced = pd.concat([df_majority, df_minority_upsampled])
+
+        # Mieszamy dane
+    train_data_balanced = train_data_balanced.sample(frac=1, random_state=42).reset_index(drop=True)
+
+    # Rozdzielamy z powrotem X i y
+    X_train_balanced = train_data_balanced.drop(columns=[target_column])
+    y_train_balanced = train_data_balanced[[target_column]]
+
+    return X_train_balanced, y_train_balanced
+
 
 
 def train_model(X_train, X_test, y_train, y_test):

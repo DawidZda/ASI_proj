@@ -29,3 +29,12 @@ y_train:
 y_test:
   type: pandas.CSVDataset
   filepath: data/05_model_input/y_test.csv
+
+
+X_train_balanced:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/X_train_balanced.csv
+
+y_train_balanced:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/y_train_balanced.csv

@@ -27,9 +27,11 @@ Zamienia znaki zapytania '?' na Unknown.
 ### add_new_features_node
 Dodaje nową ceche kontynent na który jest położony dany kraj (chyba, że to USA to wtedy zostaje USA -> zrobiłem tak poniważ osób z USA jest najwięcej -> do dyskusji).
 
-
 ### train_and_test_sets_node
 Stworzenie plików treningowych i testowych.
+
+### balance_train_set_node
+Balansowanie zbioru treningowego za pomocą resample.
 
 ### train_model_node
 Tranowanie modelu za pomocą autogluon na standordowych ustawieniach i zapis na chmurę google (jeżeli opcja UPLOAD_MODEL jest włączona)
@@ -47,8 +49,19 @@ weighted avg     0.8157    0.8230    0.8181      6513
 ### Uruchomienie 
 kedro run (testowane tylko na Windows)
 
-### Do dodania
-Zbalanoswanie danych -> do dyskusji
+### Balansowanie
+
+Za pomocą resample
+
+Raport klasyfikacji:
+               precision    recall  f1-score   support
+
+       False     0.8830    0.8626    0.8727      4927
+        True     0.6018    0.6450    0.6226      1586
+
+    accuracy                         0.8096      6513
+   macro avg     0.7424    0.7538    0.7477      6513
+weighted avg     0.8145    0.8096    0.8118      6513
 
 
 ## skrypt tools/test
