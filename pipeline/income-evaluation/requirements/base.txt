@@ -1,0 +1,11 @@
+kedro~=0.19.13
+notebook
+python-dotenv
+pandas
+kedro-datasets[pandas-csvdataset,json]>=3.0
+google-auth==2.29.0
+google-auth-oauthlib==1.2.0
+google-services-account-tools==1.4.0
+scikit-learn
+autogluon.tabular
+kedro-viz>=6.7.0

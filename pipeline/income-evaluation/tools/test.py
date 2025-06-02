@@ -71,6 +71,10 @@ def delete_file(file_or_folder_id):
 
 def download_model():
     
+    # Tworzenie folderow 
+    os.makedirs('tmp', exist_ok=True)
+    os.makedirs('unzipped_model', exist_ok=True)
+    
     zip_file = 'tmp/tabular_model.zip'
     unzipped_dir = 'unzipped_model'
 
