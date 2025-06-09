@@ -12,14 +12,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy only the GUI application code and necessary files
 COPY src/ ./src/
 
-# Configure Streamlit
-RUN mkdir -p /root/.streamlit
-RUN echo "\
-[server]\n\
-enableCORS = false\n\
-enableXsrfProtection = false\n\
-" > /root/.streamlit/config.toml
-
 # Expose port for Streamlit
 EXPOSE 8501
 
