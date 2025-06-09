@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: api.Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./credentials:/credentials
+    environment:
+      - GOOGLE_CREDENTIALS=/credentials/asiprojekt.json
+
+  gui:
+    build:
+      context: ./gui
+      dockerfile: gui.Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
