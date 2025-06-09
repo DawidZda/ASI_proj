@@ -172,3 +172,8 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# custom
+pipeline/income-evaluation/credentials
+pipeline/income-evaluation/tools/tmp
+pipeline/income-evaluation/tools/unzipped_model
